@@ -1,0 +1,17 @@
+---
+#- hosts: A
+  #roles:
+    #- "deploy-A"
+
+#- hosts: B
+  #roles:
+    #- "deploy-B"
+
+#- hosts: C
+  #roles:
+    #- "deploy-C"
+- hosts: A, B, C
+  roles:
+    - "deploy-A"
+    - "deploy-B"
+    - "deploy-C"

@@ -1,0 +1,14 @@
+---
+- name: "Copy docker-compose file to Server"
+  copy:
+    src: docker-compose.yml
+    dest: /tmp/docker-compose.yml
+
+- name: "Run docker compose"
+  shell: docker-compose up -d
+  args:
+    chdir: /tmp
+
+- name: "Run nuch scripts"
+  shell: rm /tmp/docker-compose.yml
+

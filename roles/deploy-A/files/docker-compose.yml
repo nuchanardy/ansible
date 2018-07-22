@@ -1,0 +1,36 @@
+version: '3' 
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    #volumes:
+     #- /home/mushroom/piesoft/webserver-1:/usr/share/nginx/html
+    ports:
+     - "80:80"
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80
+    restart: always
+    networks: 
+      - test-network
+
+  #db: 
+    #image: mysql
+    #container_name: mysql
+    #restart: always
+    #environment:
+      #MYSQL_ROOT_PASSWORD: test1234
+    #networks: 
+      #- test-network
+
+  #adminer:
+    #image: adminer
+    #container_name: mysql_admin
+    #restart: always
+    #ports:
+      #- 5000:8080
+    #networks: 
+      #- test-network
+
+networks:
+  test-network:
